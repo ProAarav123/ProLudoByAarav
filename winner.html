@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Winner</title>
+  <style>
+    body { background: black; color: lime; font-family: 'Orbitron', sans-serif; text-align: center; padding-top: 100px; }
+    h1 { font-size: 3em; }
+    .btn { margin-top: 30px; padding: 10px 30px; background: lime; color: black; border: none; font-size: 1.2em; cursor: pointer; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h1 id="winText">Winner!</h1>
+  <button class="btn" onclick="window.location.href='index.html'">Play Again</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const winner = params.get('winner');
+    document.getElementById("winText").textContent = `Congratulations, ${winner} Wins!`;
+  </script>
+</body>
+</html>
