@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ludo Game</title>
+  <style>
+    body { background: #111; color: white; font-family: Arial, sans-serif; text-align: center; }
+    .btn { margin: 10px; padding: 10px 20px; font-size: 1.2em; }
+  </style>
+</head>
+<body>
+  <h1>Ludo - 4 Player Mode</h1>
+  <p>Game would go here. (Coming soon...)</p>
+  <button class="btn" onclick="endGame('Red')">Simulate Win: Red</button>
+  <button class="btn" onclick="endGame('Blue')">Simulate Win: Blue</button>
+
+  <script>
+    function endGame(winner) {
+      window.location.href = `winner.html?winner=${winner}`;
+    }
+  </script>
+</body>
+</html>
