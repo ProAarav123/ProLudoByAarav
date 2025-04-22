@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome</title>
+  <style>
+    body { background: #111; color: #0f0; font-family: 'Orbitron', sans-serif; text-align: center; }
+    .btn { margin: 10px; padding: 15px 30px; background: #0f0; border: none; color: black; font-size: 1.2em; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1 id="greeting"></h1>
+  <button class="btn" onclick="goToLudo()">Ludo</button>
+  <button class="btn" disabled>Coming Soon</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    document.getElementById("greeting").textContent = `Welcome, ${name}`;
+    function goToLudo() {
+      window.location.href = "ludo.html?name=" + encodeURIComponent(name);
+    }
+  </script>
+</body>
+</html>
