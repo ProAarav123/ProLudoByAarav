@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ludo Game</title>
+  <title>Ludo - 4 Players</title>
   <style>
-    body { background: #111; color: white; font-family: Arial, sans-serif; text-align: center; }
-    .btn { margin: 10px; padding: 10px 20px; font-size: 1.2em; }
+    body { background: #111; color: #0f0; font-family: 'Orbitron', sans-serif; text-align: center; padding-top: 50px; }
+    h1 { font-size: 2em; }
+    .dice { font-size: 100px; margin: 20px; }
+    .btn { padding: 15px 30px; font-size: 1.2em; margin: 10px; background: #0f0; border: none; color: #000; border-radius: 10px; cursor: pointer; }
   </style>
 </head>
 <body>
   <h1>Ludo - 4 Player Mode</h1>
-  <p>Game would go here. (Coming soon...)</p>
-  <button class="btn" onclick="endGame('Red')">Simulate Win: Red</button>
-  <button class="btn" onclick="endGame('Blue')">Simulate Win: Blue</button>
+  <h2 id="turn">Turn: Player 1 (Red)</h2>
+  <div class="dice" id="diceDisplay">🎲</div>
+  <button class="btn" onclick="rollDice()">Roll Dice</button>
+  <h3 id="lastRoll">Roll: -</h3>
 
   <script>
-    function endGame(winner) {
-      window.location.href = `winner.html?winner=${winner}`;
+    let currentPlayer = 1;
+
+    function rollDice() {
+      const roll = Math.floor(Math.random() * 6) + 1;
+      document.getElementById("lastRoll").textContent = `Roll: ${roll}`;
+      document.getElementById("diceDisplay").textContent = getDiceEmoji(roll);
+
+      currentPlayer = currentPlayer === 4 ? 1 : currentPlayer + 1;
+      const playerColors = ["", "Red", "Blue", "Green", "Yellow"];
+      document.getElementById("turn").textContent = `Turn: Player ${currentPlayer} (${playerColors[currentPlayer]})`;
+    }
+
+    function getDiceEmoji(roll) {
+      const diceEmojis = ["", "⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+      return diceEmojis[roll];
     }
   </script>
 </body>
